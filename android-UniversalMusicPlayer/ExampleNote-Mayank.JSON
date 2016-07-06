@@ -71,40 +71,6 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "title": "Scala SparkPi Example",
-      "text": "import scala.math.random\nimport org.apache.spark._\nval slices \u003d 6 \nval n \u003d 100000 * slices\nval count \u003d sc.parallelize(1 to n, slices).map { i \u003d\u003e\n  val x \u003d random * 2 - 1\n  val y \u003d random * 2 - 1\n  if (x*x + y*y \u003c 1) 1 else 0\n}.reduce(_ + _)\nprintln(\"Pi is roughly \" + 4.0 * count / n)\n",
-      "config": {
-        "looknfeel": "default",
-        "colWidth": 12.0,
-        "graph": {
-          "mode": "table",
-          "height": 300.0,
-          "optionOpen": false,
-          "keys": [],
-          "values": [],
-          "groups": [],
-          "scatter": {}
-        },
-        "title": true
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "jobName": "paragraph_1419935908802_1571593404",
-      "id": "20141230-103828_1839775907",
-      "result": {
-        "code": "SUCCESS",
-        "type": "TEXT",
-        "msg": "import scala.math.random\nimport org.apache.spark._\nslices: Int \u003d 6\nn: Int \u003d 600000\ncount: Int \u003d 471305\nPi is roughly 3.1420333333333335\n"
-      },
-      "dateCreated": "Dec 30, 2014 10:38:28 AM",
-      "dateStarted": "Apr 8, 2015 6:34:12 PM",
-      "dateFinished": "Apr 8, 2015 6:34:18 PM",
-      "status": "FINISHED",
-      "progressUpdateIntervalMs": 500
-    },
-    {
       "title": "Top 10 words in dataset in s3",
       "text": "//get top 10 words in a dataset in s3\nval file \u003d sc.textFile(\"s3://paid-qubole/default-datasets/gutenberg/pg20417.txt\")\nval counts \u003d file.flatMap(line \u003d\u003e line.split(\" \")).\nmap(word \u003d\u003e (word, 1)).\nreduceByKey(_+_).\nmap(item \u003d\u003e item.swap).  // interchanges position of entries in each tuple\nsortByKey(false).\nmap(item \u003d\u003e item.swap).  // interchanges position of entries in each tuple\ntake(10)\n\ncounts.foreach(println)\n",
       "config": {
@@ -825,7 +791,11 @@
   ],
   "name": "ExampleNote - Mayank",
   "id": "JV28MKYSDE1467847601",
-  "angularObjects": {},
+  "angularObjects": {
+    "2BNDNC7JW111651464105946826": [],
+    "2BK8WE9PJ111651464105946841": [],
+    "2BP7E7RQH111651466451116468": []
+  },
   "config": {},
   "info": {},
   "source": "FCN"
